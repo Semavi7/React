@@ -36,3 +36,12 @@ body {
 #root {
     height: 100vh;
 }
+
+.btn-delete {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: brown;
+    border: none;
+    color: white;
+    width: 50px;
+}
