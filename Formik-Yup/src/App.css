@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(22, 22, 22);
+    color: white;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+form {
+    width: 500px;
+}
+
+input {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(22, 22, 22);
+    border-bottom: 1px solid lightgrey;
+    outline: none;
+    color: white;
+}
+
+.inputDiv {
+    margin: 30px 0px;
+}
+
+.saveButton {
+    width: 100%;
+    padding: 7px;
+    background-color: gold;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.checkboxDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.checkboxInput {
+    width: 20px;
+    height: 12px;
+}
+
+.input-error {
+    font-size: 15px;
+    color: rgb(184, 92, 92);
+}
