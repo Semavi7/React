@@ -19,12 +19,15 @@ function ProductCart(props: ProductCardProps) {
             <img src={image} width={230} height={230} />
             <CardContent sx={{ height: 250 }}>
                 <Typography gutterBottom variant="h5" component="div">
-                    {title.substring(1, 70)}
+                    {title.substring(0, 70)}
                 </Typography>
                 <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                    {description.substring(1, 200)}...
+                    {description.substring(0, 200)}...
                 </Typography>
             </CardContent>
+            <div>
+                <h2 style={{ fontFamily: 'arial' }}>{price}₺</h2>
+            </div>
             <CardActions>
                 <Button size="small" variant='outlined' color='info'>Detay</Button>
             </CardActions>

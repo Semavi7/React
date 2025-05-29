@@ -7,6 +7,8 @@ import { toast } from 'react-toastify';
 import type { RootState } from '../redux/store';
 import ProductCart from '../components/ProductCart';
 import "../css/HomePage.css"
+import Category from '../components/Category';
+import Container from '@mui/material/Container';
 
 function HomePage() {
 
@@ -40,12 +42,18 @@ function HomePage() {
     }, [])
 
     return (
-        <div className='product'>
-            {
-                products && products.map((product: ProductType, index: number) => (
-                    <ProductCart key={index} product={product} />
-                ))
-            }
+
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'center' }}>
+            <Category />
+            <Container maxWidth="xl">
+                <div className='product'>
+                    {
+                        products && products.map((product: ProductType, index: number) => (
+                            <ProductCart key={index} product={product} />
+                        ))
+                    }
+                </div>
+            </Container>
         </div>
     )
 }

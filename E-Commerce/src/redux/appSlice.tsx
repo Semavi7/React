@@ -20,14 +20,24 @@ const appSlice = createSlice({
         setLoading: (state: AppSliceType, action: PayloadAction<boolean>) => {
             state.loading = action.payload;
         },
-        setCurrentUser: (state: AppSliceType, action: PayloadAction<UserType>) => {
+        setCurrentUser: (state: AppSliceType, action: PayloadAction<UserType | null>) => {
             state.currentUser = action.payload;
         },
         setProducts: (state: AppSliceType, action: PayloadAction<ProductType[]>) => {
             state.products = action.payload;
+        },
+        filterProduct: (state: AppSliceType, action: PayloadAction<string>) => {
+            const tempList: ProductType[] = [];
+
+            state.products.map((product: ProductType) => {
+                if (product.title.toLocaleLowerCase().includes(action.payload.toLocaleLowerCase())) {
+                    tempList.push(product);
+                }
+            })
+            state.products = [...tempList];
         }
     }
 })
 
-export const { setLoading, setCurrentUser, setProducts } = appSlice.actions
+export const { setLoading, setCurrentUser, setProducts, filterProduct } = appSlice.actions
 export default appSlice.reducer
