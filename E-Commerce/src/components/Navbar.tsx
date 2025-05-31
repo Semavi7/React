@@ -8,15 +8,20 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MagaraIcon from '../images/magara.png'
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { filterProduct, setCurrentUser, setProducts } from '../redux/appSlice';
 import { toast } from 'react-toastify';
 import ProductService from '../services/ProductService';
 import type { ProductType } from '../types/Type';
+import { FaShoppingBasket } from "react-icons/fa";
+import Badge from '@mui/material/Badge';
+import type { RootState } from '../redux/store';
 
 function Navbar() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
+    const { basket } = useSelector((state: RootState) => state.basket);
 
     const logout = () => {
         localStorage.removeItem("currentUser");
@@ -76,10 +81,14 @@ function Navbar() {
                         }}
                         variant="standard"
                     />
+                    <Badge badgeContent={basket.length} color="warning" sx={{ marginRight: '15px' }}>
+                        <FaShoppingBasket style={{ fontSize: '18px', margin: '0px 4px', cursor: 'pointer' }} />
+                    </Badge>
+
                     <Button onClick={logout} color="inherit">Çıkış Yap</Button>
                 </div>
             </Toolbar>
-        </AppBar>
+        </AppBar >
     )
 }
 
