@@ -36,7 +36,8 @@ function ProductDetail() {
                 ...product,
                 count: count
             }
-            dispatch(addProductToBasket(payload))
+            dispatch(addProductToBasket(payload));
+            toast.success("Ürün sepete eklendi");
         }
     }
 

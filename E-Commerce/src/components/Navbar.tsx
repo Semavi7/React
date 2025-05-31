@@ -9,7 +9,7 @@ import IconButton from '@mui/material/IconButton';
 import MagaraIcon from '../images/magara.png'
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { filterProduct, setCurrentUser, setProducts } from '../redux/appSlice';
+import { filterProduct, setCurrentUser, setDrawer, setProducts } from '../redux/appSlice';
 import { toast } from 'react-toastify';
 import ProductService from '../services/ProductService';
 import type { ProductType } from '../types/Type';
@@ -43,6 +43,10 @@ function Navbar() {
         } catch (error) {
             toast.error("Filtreleme yaparken hata oluştu : " + error)
         }
+    }
+
+    const openDrawer = () => {
+        dispatch(setDrawer(true));
     }
 
     return (
@@ -81,7 +85,7 @@ function Navbar() {
                         }}
                         variant="standard"
                     />
-                    <Badge badgeContent={basket.length} color="warning" sx={{ marginRight: '15px' }}>
+                    <Badge onClick={openDrawer} badgeContent={basket.length} color="warning" sx={{ marginRight: '15px', cursor: 'pointer' }}>
                         <FaShoppingBasket style={{ fontSize: '18px', margin: '0px 4px', cursor: 'pointer' }} />
                     </Badge>
 

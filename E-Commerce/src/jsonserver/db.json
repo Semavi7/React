@@ -3,7 +3,14 @@
     {
       "id": "02e1",
       "username": "Semavi7",
-      "password": "1151"
+      "password": "1151",
+      "balance": 1000
+    },
+    {
+      "id": "248605",
+      "username": "Burchan",
+      "password": "1151",
+      "balance": 1000
     }
   ]
 }
